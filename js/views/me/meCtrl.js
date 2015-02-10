@@ -8,4 +8,5 @@ $scope.getHobbies = function(){
 	
 }
 
+
 })

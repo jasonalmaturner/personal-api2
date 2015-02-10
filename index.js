@@ -37,7 +37,10 @@ var me = {
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(cors());
+// app.use(cors());
+app.use(function(req, res, next){
+	res.setHeader('Access')
+})
 
 app.get('/api/name', function(req, res) {
 	res.send(me.name);
@@ -64,9 +67,9 @@ app.get('/api/hobbies', function(req, res) {
 })
 
 app.get('/api/occupations', function(req, res) {
-	if(req.query.order === 'desc') {
+	if(req.query.order === 'asc') {
 		res.json(me.occupations.sort())
-	} else if (req.query.order === 'asc') {
+	} else if (req.query.order === 'desc') {
 		res.json(me.occupations.sort().reverse())
 	} else {
 		res.json(me.occupations);		
@@ -105,12 +108,12 @@ app.get('/api/skillz', function(req, res) {
 		}
 	res.json(responseArray);
 	} else {
-		res.json(me.skillz)
+		res.json(me.skillz);
 	}
 })
 
 app.post('/api/skillz', function(req, res) {
-	console.log(req.body)
+	console.log(req);
 	me.skillz.push(req.body);
 	res.send();
 })

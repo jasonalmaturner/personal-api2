@@ -1,2 +1,9 @@
 {{name}}
 {{location}}
+
+<form ng-submit="sendSkill()">
+	<input ng-model="skill" type="text" placeholder="enter a skill"></input>
+	<button>Submit</button>
+</form>
+
+<div ng-repeat="skill in skillz"> {{skill}} </div>

@@ -30,4 +30,29 @@ this.getLocation = function(){
 	return deferred.promise;
 }
 
+this.addSkill = function(fred){
+	var deferred = $q.defer();
+
+	$http({
+		method: 'POST',
+		url: 'http://localhost:9001/api/skillz',
+		data: fred
+	})
+
+	return deferred.promise;
+}
+
+this.getSkillz = function() {
+	var deferred = $q.defer();
+	$http({
+		method: 'GET',
+		url: 'http://localhost:9001/api/skillz'
+	}).then(function(res) {
+		deferred.resolve(res.data);
+	}, function(err) {
+		deferred.reject(err);
+	})
+	return deferred.promise;
+}
+
 })
