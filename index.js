@@ -37,10 +37,10 @@ var me = {
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
-// app.use(cors());
-app.use(function(req, res, next){
-	res.setHeader('Access')
-})
+app.use(cors());
+// app.use(function(req, res, next){
+// 	res.setHeader('Access')
+// })
 
 app.get('/api/name', function(req, res) {
 	res.send(me.name);
@@ -51,7 +51,7 @@ app.get('/api/location', function(req, res) {
 })
 
 app.put('/api/location', function(req, res) {
-	// console.log(req.body.location)
+	console.log(req.body)
 	me.location = req.body.location;
 	res.send(me.location);
 });

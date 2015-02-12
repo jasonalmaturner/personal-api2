@@ -34,9 +34,9 @@ this.addSkill = function(fred){
 	var deferred = $q.defer();
 
 	$http({
-		method: 'POST',
-		url: 'http://localhost:9001/api/skillz',
-		data: fred
+		method: 'PUT',
+		url: 'http://localhost:9001/api/location',
+		data: {location: fred}
 	})
 
 	return deferred.promise;
